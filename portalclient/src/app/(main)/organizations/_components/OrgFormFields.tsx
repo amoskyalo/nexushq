@@ -1,7 +1,6 @@
 "use client";
 
-import { useRef } from "react";
-import { Stack } from "@mui/material";
+import { Stack, Box, Typography } from "@mui/material";
 import { Form, useFormikContext } from "formik";
 import { TextInput } from "@/components/inputs/TextInput";
 import { SelectInput } from "@/components/inputs/SelectInput";
@@ -15,21 +14,8 @@ import type { ModuleOption, OrgFormFieldsProps, OrgFormValues } from "../_types/
 
 export const OrgFormFields = ({ loading, submitLabel }: OrgFormFieldsProps) => {
     const formik = useFormikContext<OrgFormValues>();
-    const slugTouched = useRef(formik.values.slug.length > 0);
 
-    const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        const next = e.target.value;
-        formik.setFieldValue("name", next);
-        if (!slugTouched.current) {
-            formik.setFieldValue("slug", slugify(next));
-        }
-    };
-
-    const handleSlugChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        slugTouched.current = true;
-        formik.setFieldValue("slug", slugify(e.target.value));
-    };
-
+    const previewSlug = slugify(formik.values.name);
     const selectedModules = MODULE_OPTIONS.filter((m) => formik.values.modules.includes(m.value));
     const modulesError = formik.submitCount > 0 && Boolean(formik.errors.modules);
 
@@ -42,19 +28,22 @@ export const OrgFormFields = ({ loading, submitLabel }: OrgFormFieldsProps) => {
                     {...getFormikFieldProps({ formik, field: "logo", isFile: true })}
                 />
 
-                <TextInput
-                    label="Organization name"
-                    placeholder="e.g. Acme Corp"
-                    {...getFormikFieldProps({ formik, field: "name" })}
-                    onChange={handleNameChange}
-                />
-
-                <TextInput
-                    label="Slug"
-                    placeholder="your-org"
-                    {...getFormikFieldProps({ formik, field: "slug" })}
-                    onChange={handleSlugChange}
-                />
+                <Box>
+                    <TextInput
+                        label="Organization name"
+                        placeholder="e.g. Acme Corp"
+                        {...getFormikFieldProps({ formik, field: "name" })}
+                    />
+                    {previewSlug && (
+                        <Typography
+                            variant="caption"
+                            color="text.secondary"
+                            sx={{ display: "block", mt: 0.5, ml: 0.5 }}
+                        >
+                            {previewSlug}.nexushq.org
+                        </Typography>
+                    )}
+                </Box>
 
                 <SelectInput
                     label="Industry"

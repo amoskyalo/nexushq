@@ -65,7 +65,12 @@ export const ActionDialog = (props: ActionDialogProps) => {
                         disabled={loading}
                         onClick={onCancel}
                         disableElevation
-                        sx={{ backgroundColor: "action.hover", px: 2 }}
+                        sx={{
+                            backgroundColor: "action.hover",
+                            px: 2,
+                            height: "34px !important",
+                            minHeight: "34px !important",
+                        }}
                     >
                         {onCancelButtonText ?? "Cancel"}
                     </Button>
@@ -78,7 +83,7 @@ export const ActionDialog = (props: ActionDialogProps) => {
                         }
                         variant="contained"
                         disableElevation
-                        sx={{ color: "white" }}
+                        sx={{ color: "white", height: "34px !important", minHeight: "34px !important" }}
                     >
                         {onOkayButtonText}
                     </Button>

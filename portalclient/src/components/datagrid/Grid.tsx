@@ -155,7 +155,7 @@ export const Grid = <TData, TParams>(gridProps: GridModelProps<TData, TParams>) 
                     getRowId={(row) => row.id ?? row?.[rowIdKey]}
                     checkboxSelection={checkboxSelection}
                     columnHeaderHeight={50}
-                    rowHeight={50}
+                    rowHeight={52}
                     onFilterModelChange={
                         isClientSideSearch
                             ? undefined
@@ -201,12 +201,10 @@ export const Grid = <TData, TParams>(gridProps: GridModelProps<TData, TParams>) 
                 slotProps={{
                     paper: {
                         sx: {
-                            minWidth: 150,
+                            minWidth: 120,
                             overflow: "visible",
-                            border: 1,
-                            borderColor: "divider",
                             mt: 0.5,
-                            borderRadius: 3,
+                            borderRadius: 2,
                         },
                     },
                 }}
@@ -220,17 +218,20 @@ export const Grid = <TData, TParams>(gridProps: GridModelProps<TData, TParams>) 
                     })
                     .map((item) => {
                         const hasChildren = item.children && item.children.length > 0;
+                        const isMuiIcon = (item.icon as any)?.type?.muiName === "SvgIcon";
                         const iconEl = item.icon
-                            ? React.cloneElement(item.icon as any, {
-                                  sx: { fontSize: 16, mr: 0.5 },
-                                  ...(!(item.icon as any).props?.sx && { stroke: "currentColor", size: 16 }),
-                              })
+                            ? React.cloneElement(
+                                  item.icon as any,
+                                  isMuiIcon
+                                      ? { sx: { fontSize: 16, mr: 0.5 } }
+                                      : { size: 16, style: { marginRight: 6, ...(item.icon as any).props?.style } },
+                              )
                             : null;
 
                         return (
                             <Box
                                 sx={{
-                                    paddingX: 1,
+                                    paddingX: 0.5,
                                     borderTop: item.error ? 1 : 0,
                                     borderColor: "divider",
                                     pt: item.error ? 1 : 0,
@@ -259,7 +260,7 @@ export const Grid = <TData, TParams>(gridProps: GridModelProps<TData, TParams>) 
                                     <Typography
                                         variant="body2"
                                         color={item.error ? "error" : "inherit"}
-                                        sx={{ flex: 1 }}
+                                        sx={{ flex: 1, fontWeight: 500 }}
                                     >
                                         {item.name}
                                     </Typography>

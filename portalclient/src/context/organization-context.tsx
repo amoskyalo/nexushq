@@ -11,10 +11,7 @@ const readStoredId = (): string | null => {
     return window.localStorage.getItem(STORAGE_KEY);
 };
 
-const OrganizationContext = createContext<OrganizationContextProps>({
-    selectedOrg: undefined,
-    setSelectedOrg: () => {},
-});
+const OrganizationContext = createContext<OrganizationContextProps>({} as OrganizationContextProps);
 
 const OrganizationProvider = ({ children }: { children: React.ReactNode }) => {
     const { me } = useAuth();
@@ -43,7 +40,7 @@ const OrganizationProvider = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     const value = useMemo<OrganizationContextProps>(
-        () => ({ selectedOrg, setSelectedOrg }),
+        () => ({ selectedOrg: selectedOrg as OrganizationType, setSelectedOrg }),
         [selectedOrg, setSelectedOrg],
     );
 

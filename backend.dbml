@@ -17,6 +17,7 @@ Table organizations {
   orgName   String [not null]
   slug      String [not null]
   modules   MODULES [default: 'HR']
+  status    ORG_STATUS [default: 'ACTIVE']
 }
 
 Table departments {
@@ -57,6 +58,11 @@ enum DOCUMENT_TYPE {
   ID_CARD
   PASSPORT
   DRIVING_LICENSE
+}
+
+enum ORG_STATUS {
+  ACTIVE
+  SUSPENDED
 }
 
 Ref: "organizations"."userId" < "users"."id"

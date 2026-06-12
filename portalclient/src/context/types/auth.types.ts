@@ -1,5 +1,7 @@
 export type OrganizationModule = "HR" | "FINANCE" | "TECH" | "AGILE";
 
+export type OrganizationStatus = "ACTIVE" | "SUSPENDED";
+
 export type OrganizationType = {
     id: string;
     userId: string;
@@ -7,6 +9,7 @@ export type OrganizationType = {
     slug: string;
     industry: string;
     modules: OrganizationModule[];
+    status: OrganizationStatus;
     createdAt: string;
     updatedAt: string;
 };
@@ -25,7 +28,7 @@ export type UserType = {
 };
 
 export type OrganizationContextProps = {
-    selectedOrg?: OrganizationType;
+    selectedOrg: OrganizationType;
     setSelectedOrg: (org: OrganizationType) => void;
 };
 

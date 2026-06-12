@@ -16,6 +16,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                     <Stack sx={{ flex: 1, overflowX: "hidden", height: "100%", p: 1 }}>
                         <Stack
                             direction="column"
+                            className="page-container"
                             sx={{
                                 flex: 1,
                                 overflowX: "hidden",
@@ -27,7 +28,8 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                             <AppBar
                                 position="sticky"
                                 sx={{
-                                    backgroundColor: "transparent",
+                                    backgroundColor: "rgba(255, 255, 255, 0.8)",
+                                    backdropFilter: "blur(8px)",
                                     color: "text.primary",
                                     boxShadow: "none",
                                     border: 0,
