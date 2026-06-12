@@ -17,7 +17,7 @@ export default function PieCharts({ data, height = 250, legend }: Props) {
     const legendVisibility = !legend?.hidden;
 
     return (
-        <Stack sx={{ flex: 1, height: "100%" }}>
+        <Stack sx={{ width: "100%", height: "100%" }}>
             <Box
                 sx={{
                     flex: 1,
@@ -36,7 +36,7 @@ export default function PieCharts({ data, height = 250, legend }: Props) {
                             paddingAngle: 2,
                             cornerRadius: 4,
                             highlightScope: { fade: "global", highlight: "item" },
-                            faded: { additionalRadius: -5, },
+                            faded: { additionalRadius: -5 },
                         },
                     ]}
                     skipAnimation={false}
@@ -58,7 +58,9 @@ export default function PieCharts({ data, height = 250, legend }: Props) {
                                         backgroundColor: color,
                                     }}
                                 />
-                                <Typography variant="body2" color="text.secondary" fontSize={11}>{label}</Typography>
+                                <Typography variant="body2" color="text.secondary" fontSize={11}>
+                                    {label}
+                                </Typography>
                             </Stack>
                         ))}
                     </Stack>
@@ -66,8 +68,8 @@ export default function PieCharts({ data, height = 250, legend }: Props) {
             </Box>
 
             {legendVisibility && legendPlacement === "bottom" && (
-                <Box sx={{ borderTop: 1, borderColor: "divider", paddingTop: 1.5, paddingBottom: 1 }}>
-                    <Stack direction="row" columnGap={1} rowGap={1} flexWrap="wrap">
+                <Box sx={{ borderTop: 1, borderColor: "divider", paddingTop: 2, paddingBottom: 0 }}>
+                    <Stack direction="row" justifyContent="center" columnGap={2} rowGap={1} flexWrap="wrap">
                         {data.map(({ color, id, label }) => (
                             <Stack direction="row" alignItems="center" columnGap={0.5} key={id}>
                                 <Box
@@ -78,7 +80,9 @@ export default function PieCharts({ data, height = 250, legend }: Props) {
                                         backgroundColor: color,
                                     }}
                                 />
-                               <Typography variant="body2" color="text.secondary" fontSize={12}>{label}</Typography>
+                                <Typography variant="body2" color="text.secondary" fontSize={12} fontStyle="italic">
+                                    {label}
+                                </Typography>
                             </Stack>
                         ))}
                     </Stack>

@@ -1,51 +1,57 @@
 "use client";
 
 import { Box } from "@mui/material";
-import { axisClasses } from "@mui/x-charts";
 import { LineChart as MUILineChart } from "@mui/x-charts/LineChart";
 
 type Props = {
     labels: string[];
     data: number[];
+    height?: number;
+    color?: string;
+    areaGradientId?: string;
 };
 
-export default function LineChart({ data, labels }: Props) {
+export default function LineChart({ data, labels, height = 400, color = "#00A76F", areaGradientId }: Props) {
     return (
-        <Box sx={{ flex: 1, minHeight: 300, width: "100%" }}>
+        <Box sx={{ flex: 1, minHeight: height, width: "100%" }}>
             <MUILineChart
                 xAxis={[
                     {
                         data: labels,
                         scaleType: "point",
+                        disableLine: true,
+                        disableTicks: true,
                         tickLabelStyle: {
-                            fontSize: 10,
+                            fontSize: 12,
+                            fontStyle: "italic",
                         },
-                        tickLabelInterval: () => true,
                     },
                 ]}
                 yAxis={[
                     {
                         valueFormatter: (value: number | null) => `${value ?? 0}`,
+                        disableLine: true,
+                        disableTicks: true,
                     },
                 ]}
                 series={[
                     {
                         data,
                         area: true,
-                        color: "#00A76F",
-                        showMark: true,
-                        curve: "catmullRom",
+                        color,
+                        showMark: false,
                     },
                 ]}
                 grid={{ horizontal: true }}
-                margin={{ bottom: 50, left: 0, right: 10, top: 10 }}
+                margin={{ bottom: 24, left: 0, right: 24, top: 10 }}
                 sx={{
                     "& .MuiLineElement-root": {
                         strokeWidth: 2,
                         strokeLinecap: "round",
                     },
                     "& .MuiAreaElement-root": {
-                        fillOpacity: 0.2,
+                        fill: areaGradientId ? `url(#${areaGradientId})` : undefined,
+                        fillOpacity: areaGradientId ? 1 : 0.2,
                     },
                     "& .MuiChartsAxis-line": {
                         stroke: "transparent",
@@ -57,12 +63,8 @@ export default function LineChart({ data, labels }: Props) {
                         stroke: "rgba(0, 0, 0, 0.08)",
                         strokeDasharray: "3 3",
                     },
-                    [`& .${axisClasses.bottom} .${axisClasses.tickLabel}`]: {
-                        transform: "rotateZ(-45deg) translateY(5px)",
-                        textAnchor: "end",
-                    },
                 }}
-                height={400}
+                height={height}
             />
         </Box>
     );
