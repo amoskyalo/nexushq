@@ -187,9 +187,6 @@ export const createLightTheme = (colors?: ThemeColors): Theme =>
                 styleOverrides: {
                     root: {
                         boxShadow: "0 0.5rem 2rem 0 rgba(31, 38, 135, 0.1)",
-                        backgroundColor: "rgba(255, 255, 255, 0.7)",
-                        backdropFilter: "blur(0.75rem)",
-                        WebkitBackdropFilter: "blur(0.75rem)",
                         border: "0.0625rem solid rgba(255, 255, 255, 0.18)",
                         transition: "none",
                     },
@@ -202,9 +199,6 @@ export const createLightTheme = (colors?: ThemeColors): Theme =>
                         ...baseComponents.MuiCard.styleOverrides.root,
                         boxShadow: "0 0.625rem 2.5rem rgba(0, 0, 0, 0.1)",
                         backgroundColor: "rgba(255, 255, 255, 0.7)",
-                        backdropFilter: "blur(0.75rem)",
-                        WebkitBackdropFilter: "blur(0.75rem)",
-                        border: "0.0625rem solid rgba(255, 255, 255, 0.18)",
                         transition: "transform 0.3s ease, box-shadow 0.3s ease",
                         "&:hover": {
                             ...baseComponents.MuiCard.styleOverrides.root["&:hover"],

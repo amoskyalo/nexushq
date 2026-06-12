@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { Avatar, Box, ButtonBase, CircularProgress, Menu, MenuItem, Stack, Typography } from "@mui/material";
+import { alpha } from "@mui/material/styles";
 import { Building2, Check, ChevronDown, ChevronUp } from "lucide-react";
 import { useOrganization } from "@/context";
 import type { OrganizationType } from "@/context";
@@ -157,22 +158,49 @@ const OrgSwitcher = () => {
                                         "&.Mui-selected": { bgcolor: "action.hover" },
                                     }}
                                 >
-                                    <Stack direction="row" alignItems="center" spacing={1.5} sx={{ width: "100%" }}>
+                                    <Stack direction="row" alignItems="center" spacing={1} sx={{ width: "100%" }}>
                                         <Avatar
                                             sx={{
-                                                width: 32,
-                                                height: 32,
-                                                fontSize: 13,
+                                                width: 36,
+                                                height: 36,
                                                 bgcolor: "transparent",
                                                 color: "text.secondary",
                                             }}
                                         >
-                                            <Building2 size={20} />
+                                            <Building2 size={23} />
                                         </Avatar>
                                         <Box sx={{ flex: 1, minWidth: 0 }}>
-                                            <Typography variant="body2" fontWeight={600} sx={{ fontSize: 14 }} noWrap>
-                                                {org.name}
-                                            </Typography>
+                                            <Stack direction="row" alignItems="center" spacing={1}>
+                                                <Typography
+                                                    variant="body2"
+                                                    fontWeight={600}
+                                                    sx={{ fontSize: 14 }}
+                                                    noWrap
+                                                >
+                                                    {org.name}
+                                                </Typography>
+                                                <Box
+                                                    component="span"
+                                                    sx={{
+                                                        flexShrink: 0,
+                                                        px: 0.7,
+                                                        py: 0.1,
+                                                        borderRadius: 6,
+                                                        fontSize: 10,
+                                                        lineHeight: 1.6,
+                                                        color: org.status === "SUSPENDED" ? "error.main" : "success.main",
+                                                        bgcolor: (theme) =>
+                                                            alpha(
+                                                                theme.palette[
+                                                                    org.status === "SUSPENDED" ? "error" : "success"
+                                                                ].main,
+                                                                0.12,
+                                                            ),
+                                                    }}
+                                                >
+                                                    {org.status === "SUSPENDED" ? "Suspended" : "Active"}
+                                                </Box>
+                                            </Stack>
                                             <Typography
                                                 variant="body2"
                                                 color="text.secondary"

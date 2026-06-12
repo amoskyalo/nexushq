@@ -7,7 +7,7 @@ export type CreateOrganizationPayload = {
     modules: OrganizationModule[];
 };
 
-export type OrgFormValues = CreateOrganizationPayload & {
+export type OrgFormValues = Omit<CreateOrganizationPayload, "slug"> & {
     logo: File | null;
 };
 

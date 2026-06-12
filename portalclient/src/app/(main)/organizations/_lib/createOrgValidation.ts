@@ -10,12 +10,6 @@ export const createOrgValidationSchema = getValidationSchema([
             (schema as StringSchema).trim().min(2, "Organization name must be at least 2 characters"),
     },
     {
-        name: "slug",
-        type: "string",
-        errorMessage: "Slug is required",
-        extend: (schema) => (schema as StringSchema).trim().min(5, "Slug must be at least 5 characters"),
-    },
-    {
         name: "industry",
         type: "string",
         errorMessage: "Please select an industry",
