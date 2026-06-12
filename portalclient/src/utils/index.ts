@@ -6,3 +6,4 @@ export * from "./excel";
 export * from "./formatters";
 export * from "./read-excel-file";
 export * from "./customize-columns";
+export * from "./getInitials";

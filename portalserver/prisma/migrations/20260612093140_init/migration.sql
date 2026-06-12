@@ -1,0 +1,5 @@
+-- CreateEnum
+CREATE TYPE "ORG_STATUS" AS ENUM ('ACTIVE', 'SUSPENDED');
+
+-- AlterTable
+ALTER TABLE "organizations" ADD COLUMN     "status" "ORG_STATUS" NOT NULL DEFAULT 'ACTIVE';

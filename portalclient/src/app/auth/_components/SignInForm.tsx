@@ -7,7 +7,7 @@ import { Formik, Form } from "formik";
 import { useSignIn } from "../_lib/auth.api";
 import { getFormikFieldProps } from "@/utils/generateFieldProps";
 import { getValidationSchema } from "@/utils/validationSchema";
-import { Mail, LockKeyhole } from "lucide-react";
+import { Mail, LockKeyhole, LogIn } from "lucide-react";
 import { SignInInitialValues } from "../_types/auth.types";
 import Link from "next/link";
 
@@ -42,7 +42,7 @@ const SignInForm = () => {
                                 slotProps={{
                                     input: {
                                         startAdornment: (
-                                            <InputAdornment position="start" sx={{ color: "primary.main" }}>
+                                            <InputAdornment position="start" sx={{ color: "text.secondary" }}>
                                                 <Mail size={16} />
                                             </InputAdornment>
                                         ),
@@ -58,7 +58,7 @@ const SignInForm = () => {
                                     slotProps={{
                                         input: {
                                             startAdornment: (
-                                                <InputAdornment position="start" sx={{ color: "primary.main" }}>
+                                                <InputAdornment position="start" sx={{ color: "text.secondary" }}>
                                                     <LockKeyhole size={16} />
                                                 </InputAdornment>
                                             ),
@@ -78,6 +78,7 @@ const SignInForm = () => {
                             variant="contained"
                             fullWidth
                             sx={{ mt: 2, color: "white" }}
+                            startIcon={<LogIn size={15} />}
                         >
                             Log In
                         </LoadingButton>

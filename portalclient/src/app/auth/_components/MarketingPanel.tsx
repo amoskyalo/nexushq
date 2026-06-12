@@ -44,10 +44,21 @@ export const MarketingPanel = () => {
                     <Quote size={32} fill="currentColor" strokeWidth={0} style={{ transform: "scaleX(-1)" }} />
                     <Typography variant="h6" sx={{ fontWeight: 400, opacity: 0.95, maxWidth: 520, lineHeight: 1.5 }}>
                         &ldquo;NexusHQ has completely transformed how we manage our people and processes. Onboarding,
-                        payroll, and project tracking — all in one place, finally.&rdquo;
+                        payroll, and project tracking - all in one place, finally.&rdquo;
                     </Typography>
-                    <Stack direction="row" spacing={2} alignItems="center" sx={{ pt: 1 }}>
-                        <Avatar src="/images/testimonial-avatar.png" alt="Sarah Mwangi" sx={{ width: 48, height: 48 }}>
+                    <Stack direction="row" spacing={1} alignItems="center" sx={{ pt: 1 }}>
+                        <Avatar
+                            src="/images/testimonial-avatar.png"
+                            alt="Sarah Mwangi"
+                            sx={{
+                                width: 40,
+                                height: 40,
+                                bgcolor: "#ffff",
+                                color: "primary.main",
+                                fontSize: 16,
+                                fontWeight: 600,
+                            }}
+                        >
                             SM
                         </Avatar>
                         <Stack>

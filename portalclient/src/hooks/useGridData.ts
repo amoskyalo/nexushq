@@ -31,7 +31,7 @@ export const useGridData = <TRow = any>(args: UseGridDataArgs): UseGridDataResul
         const { data } = await axiosInstance.get(url, {
             params: { ...params, page_size: 0, page: 1 },
         });
-        const rows = data?.data;
+        const rows = data?.body;
         return Array.isArray(rows) ? (rows as TRow[]) : [];
     };
 
