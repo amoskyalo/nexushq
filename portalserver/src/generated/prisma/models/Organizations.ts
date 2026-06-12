@@ -30,6 +30,7 @@ export type OrganizationsMinAggregateOutputType = {
   name: string | null
   slug: string | null
   industry: string | null
+  status: $Enums.ORG_STATUS | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -40,6 +41,7 @@ export type OrganizationsMaxAggregateOutputType = {
   name: string | null
   slug: string | null
   industry: string | null
+  status: $Enums.ORG_STATUS | null
   createdAt: Date | null
   updatedAt: Date | null
 }
@@ -51,6 +53,7 @@ export type OrganizationsCountAggregateOutputType = {
   slug: number
   industry: number
   modules: number
+  status: number
   createdAt: number
   updatedAt: number
   _all: number
@@ -63,6 +66,7 @@ export type OrganizationsMinAggregateInputType = {
   name?: true
   slug?: true
   industry?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -73,6 +77,7 @@ export type OrganizationsMaxAggregateInputType = {
   name?: true
   slug?: true
   industry?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
 }
@@ -84,6 +89,7 @@ export type OrganizationsCountAggregateInputType = {
   slug?: true
   industry?: true
   modules?: true
+  status?: true
   createdAt?: true
   updatedAt?: true
   _all?: true
@@ -168,6 +174,7 @@ export type OrganizationsGroupByOutputType = {
   slug: string
   industry: string
   modules: string[]
+  status: $Enums.ORG_STATUS
   createdAt: Date
   updatedAt: Date
   _count: OrganizationsCountAggregateOutputType | null
@@ -200,6 +207,7 @@ export type OrganizationsWhereInput = {
   slug?: Prisma.StringFilter<"Organizations"> | string
   industry?: Prisma.StringFilter<"Organizations"> | string
   modules?: Prisma.StringNullableListFilter<"Organizations">
+  status?: Prisma.EnumORG_STATUSFilter<"Organizations"> | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -212,6 +220,7 @@ export type OrganizationsOrderByWithRelationInput = {
   slug?: Prisma.SortOrder
   industry?: Prisma.SortOrder
   modules?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
@@ -227,6 +236,7 @@ export type OrganizationsWhereUniqueInput = Prisma.AtLeast<{
   userId?: Prisma.StringFilter<"Organizations"> | string
   industry?: Prisma.StringFilter<"Organizations"> | string
   modules?: Prisma.StringNullableListFilter<"Organizations">
+  status?: Prisma.EnumORG_STATUSFilter<"Organizations"> | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
@@ -239,6 +249,7 @@ export type OrganizationsOrderByWithAggregationInput = {
   slug?: Prisma.SortOrder
   industry?: Prisma.SortOrder
   modules?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   _count?: Prisma.OrganizationsCountOrderByAggregateInput
@@ -256,6 +267,7 @@ export type OrganizationsScalarWhereWithAggregatesInput = {
   slug?: Prisma.StringWithAggregatesFilter<"Organizations"> | string
   industry?: Prisma.StringWithAggregatesFilter<"Organizations"> | string
   modules?: Prisma.StringNullableListFilter<"Organizations">
+  status?: Prisma.EnumORG_STATUSWithAggregatesFilter<"Organizations"> | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeWithAggregatesFilter<"Organizations"> | Date | string
   updatedAt?: Prisma.DateTimeWithAggregatesFilter<"Organizations"> | Date | string
 }
@@ -266,6 +278,7 @@ export type OrganizationsCreateInput = {
   slug: string
   industry: string
   modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutOrganizationsInput
@@ -278,6 +291,7 @@ export type OrganizationsUncheckedCreateInput = {
   slug: string
   industry: string
   modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -288,6 +302,7 @@ export type OrganizationsUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.StringFieldUpdateOperationsInput | string
   modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutOrganizationsNestedInput
@@ -300,6 +315,7 @@ export type OrganizationsUncheckedUpdateInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.StringFieldUpdateOperationsInput | string
   modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -311,6 +327,7 @@ export type OrganizationsCreateManyInput = {
   slug: string
   industry: string
   modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -321,6 +338,7 @@ export type OrganizationsUpdateManyMutationInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.StringFieldUpdateOperationsInput | string
   modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -332,6 +350,7 @@ export type OrganizationsUncheckedUpdateManyInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.StringFieldUpdateOperationsInput | string
   modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -361,6 +380,7 @@ export type OrganizationsCountOrderByAggregateInput = {
   slug?: Prisma.SortOrder
   industry?: Prisma.SortOrder
   modules?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -371,6 +391,7 @@ export type OrganizationsMaxOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   industry?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -381,6 +402,7 @@ export type OrganizationsMinOrderByAggregateInput = {
   name?: Prisma.SortOrder
   slug?: Prisma.SortOrder
   industry?: Prisma.SortOrder
+  status?: Prisma.SortOrder
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
 }
@@ -436,12 +458,17 @@ export type OrganizationsUpdatemodulesInput = {
   push?: string | string[]
 }
 
+export type EnumORG_STATUSFieldUpdateOperationsInput = {
+  set?: $Enums.ORG_STATUS
+}
+
 export type OrganizationsCreateWithoutUserInput = {
   id?: string
   name: string
   slug: string
   industry: string
   modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -452,6 +479,7 @@ export type OrganizationsUncheckedCreateWithoutUserInput = {
   slug: string
   industry: string
   modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -492,6 +520,7 @@ export type OrganizationsScalarWhereInput = {
   slug?: Prisma.StringFilter<"Organizations"> | string
   industry?: Prisma.StringFilter<"Organizations"> | string
   modules?: Prisma.StringNullableListFilter<"Organizations">
+  status?: Prisma.EnumORG_STATUSFilter<"Organizations"> | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
 }
@@ -502,6 +531,7 @@ export type OrganizationsCreateManyUserInput = {
   slug: string
   industry: string
   modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
 }
@@ -512,6 +542,7 @@ export type OrganizationsUpdateWithoutUserInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.StringFieldUpdateOperationsInput | string
   modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -522,6 +553,7 @@ export type OrganizationsUncheckedUpdateWithoutUserInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.StringFieldUpdateOperationsInput | string
   modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -532,6 +564,7 @@ export type OrganizationsUncheckedUpdateManyWithoutUserInput = {
   slug?: Prisma.StringFieldUpdateOperationsInput | string
   industry?: Prisma.StringFieldUpdateOperationsInput | string
   modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
 }
@@ -545,6 +578,7 @@ export type OrganizationsSelect<ExtArgs extends runtime.Types.Extensions.Interna
   slug?: boolean
   industry?: boolean
   modules?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -557,6 +591,7 @@ export type OrganizationsSelectCreateManyAndReturn<ExtArgs extends runtime.Types
   slug?: boolean
   industry?: boolean
   modules?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -569,6 +604,7 @@ export type OrganizationsSelectUpdateManyAndReturn<ExtArgs extends runtime.Types
   slug?: boolean
   industry?: boolean
   modules?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -581,11 +617,12 @@ export type OrganizationsSelectScalar = {
   slug?: boolean
   industry?: boolean
   modules?: boolean
+  status?: boolean
   createdAt?: boolean
   updatedAt?: boolean
 }
 
-export type OrganizationsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "slug" | "industry" | "modules" | "createdAt" | "updatedAt", ExtArgs["result"]["organizations"]>
+export type OrganizationsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "slug" | "industry" | "modules" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["organizations"]>
 export type OrganizationsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
 }
@@ -608,6 +645,7 @@ export type $OrganizationsPayload<ExtArgs extends runtime.Types.Extensions.Inter
     slug: string
     industry: string
     modules: string[]
+    status: $Enums.ORG_STATUS
     createdAt: Date
     updatedAt: Date
   }, ExtArgs["result"]["organizations"]>
@@ -1040,6 +1078,7 @@ export interface OrganizationsFieldRefs {
   readonly slug: Prisma.FieldRef<"Organizations", 'String'>
   readonly industry: Prisma.FieldRef<"Organizations", 'String'>
   readonly modules: Prisma.FieldRef<"Organizations", 'String[]'>
+  readonly status: Prisma.FieldRef<"Organizations", 'ORG_STATUS'>
   readonly createdAt: Prisma.FieldRef<"Organizations", 'DateTime'>
   readonly updatedAt: Prisma.FieldRef<"Organizations", 'DateTime'>
 }

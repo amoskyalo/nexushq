@@ -27,3 +27,11 @@ export const MODULES = {
 } as const
 
 export type MODULES = (typeof MODULES)[keyof typeof MODULES]
+
+
+export const ORG_STATUS = {
+  ACTIVE: 'ACTIVE',
+  SUSPENDED: 'SUSPENDED'
+} as const
+
+export type ORG_STATUS = (typeof ORG_STATUS)[keyof typeof ORG_STATUS]
