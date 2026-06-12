@@ -1,5 +1,5 @@
 import { AppBar, Box, Stack, Toolbar, IconButton, Divider, TextField, InputAdornment } from "@mui/material";
-import { Bell, Mail, Search } from "lucide-react";
+import { Bell, CalendarFold, Search } from "lucide-react";
 import { AuthContextProvider, OrganizationProvider } from "@/context";
 import AccountMenu from "./_components/AccountMenu";
 import OrgSwitcher from "./_components/OrgSwitcher";
@@ -74,7 +74,7 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                                 <Bell size={20} />
                                             </IconButton>
                                             <IconButton sx={{ border: 1, borderColor: "divider" }}>
-                                                <Mail size={20} />
+                                                <CalendarFold size={20} />
                                             </IconButton>
 
                                             <Divider

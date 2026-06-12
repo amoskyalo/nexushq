@@ -22,6 +22,7 @@ import {
     GitPullRequest,
     Timer,
     Network,
+    Gauge,
 } from "lucide-react";
 
 export const ROUTES: SideNavRoute[] = [
@@ -47,6 +48,12 @@ export const ROUTES: SideNavRoute[] = [
     {
         title: "HR",
         kind: "header",
+    },
+    {
+        title: "Insights",
+        kind: "item",
+        segment: "/hr/insights",
+        icon: <Gauge size={16} />,
     },
     {
         title: "Departments",
