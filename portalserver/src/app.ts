@@ -7,6 +7,7 @@ import usersRoute from "./modules/employees/employees.route";
 import authRoute from "./modules/auth/auth.routes";
 import profileRoutes from "./modules/me/me.routes";
 import organizationsRoute from "./modules/organizations/organizations.routes";
+import departmentsRoute from "./modules/departments/departments.routes";
 
 const app = express();
 
@@ -30,6 +31,7 @@ app.get("/", (_, res) => {
 app.use("/api/auth", authRoute);
 app.use("/api/me", authMiddleware, profileRoutes);
 app.use("/api/organizations", authMiddleware, organizationsRoute);
+app.use("/api/departments", authMiddleware, departmentsRoute);
 app.use("/api/employees", authMiddleware, usersRoute);
 
 app.use(errorHandler);

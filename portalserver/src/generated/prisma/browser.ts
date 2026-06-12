@@ -27,3 +27,8 @@ export type User = Prisma.UserModel
  * 
  */
 export type Organizations = Prisma.OrganizationsModel
+/**
+ * Model Department
+ * 
+ */
+export type Department = Prisma.DepartmentModel

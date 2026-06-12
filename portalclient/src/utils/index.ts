@@ -7,3 +7,4 @@ export * from "./formatters";
 export * from "./read-excel-file";
 export * from "./customize-columns";
 export * from "./getInitials";
+export * from "./colorFromName";

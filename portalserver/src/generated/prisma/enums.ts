@@ -29,9 +29,9 @@ export const MODULES = {
 export type MODULES = (typeof MODULES)[keyof typeof MODULES]
 
 
-export const ORG_STATUS = {
+export const STATUS = {
   ACTIVE: 'ACTIVE',
   SUSPENDED: 'SUSPENDED'
 } as const
 
-export type ORG_STATUS = (typeof ORG_STATUS)[keyof typeof ORG_STATUS]
+export type STATUS = (typeof STATUS)[keyof typeof STATUS]
