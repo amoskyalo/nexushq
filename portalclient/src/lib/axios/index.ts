@@ -14,8 +14,6 @@ axiosInstance.interceptors.request.use((config) => {
     return config;
 });
 
-export { axiosInstance };
-
 export const queryClient = new QueryClient({
     defaultOptions: {
         queries: {
@@ -31,3 +29,26 @@ export const queryClient = new QueryClient({
         },
     },
 });
+
+const forceLogout = () => {
+    queryClient.clear();
+    axiosInstance.post("/api/auth/logout").finally(() => {
+        window.location.replace("/auth/signin");
+    });
+};
+
+axiosInstance.interceptors.response.use(
+    (response) => response,
+    (error) => {
+        const status = error?.response?.status;
+        const onAuthPage = typeof window !== "undefined" && window.location.pathname.startsWith("/auth");
+
+        if (status === 401 && typeof window !== "undefined" && !onAuthPage) {
+            forceLogout();
+        }
+
+        return Promise.reject(error);
+    },
+);
+
+export { axiosInstance };

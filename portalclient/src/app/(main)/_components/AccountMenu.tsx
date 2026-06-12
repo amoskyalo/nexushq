@@ -1,15 +1,19 @@
 "use client";
 
 import React, { useState } from "react";
-import { IconButton, Stack, Avatar, Box, Typography, Menu, Divider, Tooltip } from "@mui/material";
-import { LogOut } from "lucide-react";
-import { red } from "@mui/material/colors";
+import { useRouter } from "next/navigation";
+import { Box, Avatar, Menu, MenuItem, Divider, IconButton, Typography } from "@mui/material";
+import LogoutOutlinedIcon from "@mui/icons-material/LogoutOutlined";
 import { useAuth } from "@/context";
+import { useLogout } from "@/hooks";
+import { getInitials } from "@/utils";
 
 const AccountMenu = () => {
     const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
     const open = Boolean(anchorEl);
+    const router = useRouter();
     const { me } = useAuth();
+    const { handleLogout, loading } = useLogout();
 
     const handleClick = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorEl(event.currentTarget);
@@ -19,20 +23,10 @@ const AccountMenu = () => {
         setAnchorEl(null);
     };
 
-    const handleLogout = async () => {
-        handleClose();
-        try {
-            await fetch("/api/auth", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                credentials: "include",
-                body: JSON.stringify({ action: "logout" }),
-            });
-        } catch (error) {
-            console.log(error);
-        }
-        window.location.href = "/auth/login";
-    };
+    const menuItems = [
+        { name: "Account Settings", onClick: () => router.push("/settings") },
+        { name: "Support", onClick: () => {} },
+    ];
 
     return (
         <>
@@ -59,60 +53,59 @@ const AccountMenu = () => {
                         fontWeight: 600,
                     }}
                 >
-                    MK
+                    {getInitials(me?.displayName)}
                 </Avatar>
             </IconButton>
 
             <Menu
                 anchorEl={anchorEl}
+                id="account-menu"
                 open={open}
                 onClose={handleClose}
-                transformOrigin={{ horizontal: "right", vertical: "top" }}
-                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
+                onClick={handleClose}
                 slotProps={{
                     paper: {
-                        sx: {
-                            mt: 1,
-                            minWidth: 320,
-                            borderRadius: 3,
-                            border: 1,
-                            borderColor: "divider",
-                        },
+                        sx: { minWidth: 220, overflow: "visible", border: 1, borderColor: "divider", mt: 0.5, borderRadius: 3 },
                     },
                 }}
+                transformOrigin={{ horizontal: "right", vertical: "top" }}
+                anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
             >
-                <Stack
-                    direction="row"
-                    justifyContent="space-between"
-                    alignItems="center"
-                    sx={{ pl: 2, pr: 1.5, pb: 1.3, pt: 0.6 }}
-                >
-                    <Box>
-                        <Typography variant="subtitle2" fontWeight={600}>
-                            {me?.displayName}
-                        </Typography>
-                        <Typography variant="body2" sx={{ fontSize: 12 }} color="text.secondary">
-                            {me?.email}
-                        </Typography>
+                <Box sx={{ px: 2, borderBottom: 1, borderColor: "divider", pb: 1, mb: 1 }}>
+                    <Typography
+                        variant="body2"
+                        sx={{ fontWeight: 600, fontSize: "14px", color: "text.primary", lineHeight: 1.2 }}
+                    >
+                        {me?.displayName}
+                    </Typography>
+                    <Typography
+                        variant="body2"
+                        sx={{ fontSize: "12px", color: "text.secondary", lineHeight: 1.2, mt: 0.5 }}
+                    >
+                        {me?.email}
+                    </Typography>
+                </Box>
+
+                {menuItems.map((item) => (
+                    <Box sx={{ px: 1 }} key={item.name}>
+                        <MenuItem onClick={item.onClick} sx={{ px: 1, borderRadius: 2 }}>
+                            <Typography variant="body2" fontWeight={500}>
+                                {item.name}
+                            </Typography>
+                        </MenuItem>
                     </Box>
+                ))}
 
-                    <Tooltip title="Logout">
-                        <IconButton
-                            color="error"
-                            onClick={handleLogout}
-                            sx={{
-                                bgcolor: red[100],
-                                ":hover": {
-                                    bgcolor: red[100],
-                                },
-                            }}
-                        >
-                            <LogOut size={16} />
-                        </IconButton>
-                    </Tooltip>
-                </Stack>
+                <Divider sx={{ my: 1 }} />
 
-                <Divider sx={{ mb: 1 }} />
+                <Box sx={{ px: 1 }}>
+                    <MenuItem onClick={handleLogout} disabled={loading} sx={{ px: 1, borderRadius: 2 }}>
+                        <LogoutOutlinedIcon sx={{ fontSize: 16, mr: 1 }} color="error" />
+                        <Typography variant="body2" color="error" fontWeight={500}>
+                            Log out
+                        </Typography>
+                    </MenuItem>
+                </Box>
             </Menu>
         </>
     );

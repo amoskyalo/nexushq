@@ -26,3 +26,12 @@ export const signup = async (req: Request, res: Response, next: NextFunction) =>
         next(error);
     }
 };
+
+export const logout = (req: Request, res: Response, next: NextFunction) => {
+    try {
+        res.clearCookie("accessToken", config.cookieOptions);
+        sendResponse({ res, message: "Logout successful" });
+    } catch (error) {
+        next(error);
+    }
+};

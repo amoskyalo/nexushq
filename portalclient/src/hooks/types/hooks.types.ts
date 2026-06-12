@@ -1,11 +1,11 @@
 import { UseQueryOptions } from "@tanstack/react-query";
 
 export type APIResponse<TBody> = {
-    status: boolean;
+    success: boolean;
     message: string;
     body: TBody;
-    current_page: number;
-    pages: number;
+    current_page?: number;
+    pages?: number;
 };
 
 export type MutationParams<TBody, TParams> = {

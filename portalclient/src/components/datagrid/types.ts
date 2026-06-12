@@ -25,11 +25,6 @@ declare module "@mui/x-data-grid" {
                 label?: string;
                 disabled?: boolean;
                 loading?: boolean;
-                /**
-                 * Click handler for the toolbar download button.
-                 * Default (set by Grid): fetch full dataset via Apollo + downloadExcelFile.
-                 * Override on the page for server-side filtered downloads (date-range modal etc).
-                 */
                 onClick?: () => void;
             };
             add?: {

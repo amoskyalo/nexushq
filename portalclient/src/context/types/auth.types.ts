@@ -1,8 +1,3 @@
-export type Permission = {
-    controller: string;
-    action: string;
-};
-
 export type OrganizationModule = "HR" | "FINANCE" | "TECH" | "AGILE";
 
 export type OrganizationType = {
@@ -41,7 +36,5 @@ export type AuthStates = {
 export type AuthContextProps = {
     me?: UserType;
     state?: AuthStates;
-    switchRole?: (role: string) => Promise<void>;
-    logout?: () => Promise<void>;
     refetchProfile?: () => Promise<void>;
 };

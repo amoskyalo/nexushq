@@ -1,9 +1,8 @@
 "use client";
 
-import { createContext, useContext, useEffect, useMemo } from "react";
+import { createContext, useContext, useMemo } from "react";
 import { AuthContextProps, UserType } from "./types/auth.types";
 import { LoadingAnimation } from "@/components/animations/loading";
-import { useRouter } from "next/navigation";
 import { Box } from "@mui/material";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 import { useQueryGet } from "@/hooks/useQueryGet";
@@ -13,14 +12,8 @@ const AuthContext = createContext<AuthContextProps>({
 });
 
 const AuthContextProvider = ({ children }: { children: React.ReactNode }) => {
-    const router = useRouter();
-
-    const { data, isLoading, isFetching, isError, refetch } = useQueryGet<UserType, undefined>({ url: "/api/me" });
+    const { data, isLoading, isFetching, refetch } = useQueryGet<UserType, undefined>({ url: "/api/me" });
     const me = data?.body;
-
-    useEffect(() => {
-        if (isError) router.push("/auth/signin");
-    }, [isError, router]);
 
     const value: AuthContextProps = useMemo(
         () => ({

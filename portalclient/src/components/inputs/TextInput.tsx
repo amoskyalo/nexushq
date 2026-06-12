@@ -39,8 +39,12 @@ export const TextInput = ({
                         endAdornment:
                             isPassword && !multiline ? (
                                 <InputAdornment position="end" sx={{ cursor: "pointer" }}>
-                                    <IconButton edge="end" onClick={() => setShowPassword(!showPassword)}>
-                                        {showPassword ? <EyeOff size={20}/> : <Eye size={20} />}
+                                    <IconButton
+                                        edge="end"
+                                        onClick={() => setShowPassword(!showPassword)}
+                                        sx={{ color: "text.secondary" }}
+                                    >
+                                        {showPassword ? <EyeOff size={20} /> : <Eye size={20} />}
                                     </IconButton>
                                 </InputAdornment>
                             ) : (

@@ -10,7 +10,7 @@ const SignUpPage = () => {
                 alignItems: "center",
             }}
         >
-            <Box sx={{ width: 400, p: 4 }}>
+            <Box sx={{ width: 375, p: 4 }}>
                 <Box sx={{ mb: 3, textAlign: "center" }}>
                     <Typography variant="h5" sx={{ fontWeight: 700 }}>
                         Welcome Back

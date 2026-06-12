@@ -4,14 +4,7 @@ import { useSearchParams } from "./useSearchParams";
 
 export type GridUrlConfig = {
     searchKey?: { url?: string; api?: string };
-    /**
-     * Filter URL keys this grid uses. When provided, only these keys are
-     * forwarded to the query (whitelist). When absent, all unknown URL params
-     * are forwarded — the legacy `extraParams` bleed (deprecated, removed
-     * once every filter page declares its keys).
-     */
     filterKeys?: string[];
-    /** Page-default request fields (merged into params, not URL). */
     defaults?: Record<string, unknown>;
 };
 
@@ -100,7 +93,6 @@ function readFilterParams(
         }
         return out;
     }
-    // Legacy fallback: spread all unknown keys.
     const out: Record<string, string> = {};
     for (const [k, v] of Object.entries(all)) {
         if (!isReservedKey(k, urlSearchKey)) out[k] = v;

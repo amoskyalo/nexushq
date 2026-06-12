@@ -97,7 +97,7 @@ export const SideNav = ({ routes }: SideNavProps) => {
                                 width={1440}
                                 height={1440}
                                 alt="Logo"
-                                style={{ height: 40, width: 120 }}
+                                style={{ height: 25, width: 100 }}
                             />
                             <IconButton onClick={isSmallScreen ? toggleMobileOpen : toggleCollapse}>
                                 <PanelLeftClose color="grey" />
@@ -126,7 +126,11 @@ export const SideNav = ({ routes }: SideNavProps) => {
                             <Typography
                                 variant="caption"
                                 key={route.title}
-                                sx={{ mb: 2, textTransform: "uppercase", fontWeight: 700, opacity: 0.8 }}
+                                sx={{
+                                    textTransform: "uppercase",
+                                    fontWeight: 700,
+                                    opacity: 0.8,
+                                }}
                             >
                                 {route.title}
                             </Typography>
@@ -144,7 +148,7 @@ export const SideNav = ({ routes }: SideNavProps) => {
                             key={route.title}
                             disablePadding
                             sx={{
-                                mb: nextRoute?.kind === "header" ? 2 : 0,
+                                mb: nextRoute?.kind === "header" ? 1 : 0.5,
                                 mt: prevRoute?.kind === "header" ? 1 : 0,
                             }}
                             onClick={() => handleItemClick(route)}
@@ -154,6 +158,7 @@ export const SideNav = ({ routes }: SideNavProps) => {
                                 sx={{
                                     "&.Mui-selected": {
                                         color: "primary.main",
+
                                         backgroundColor: "action.selected",
                                         "& .MuiListItemIcon-root": {
                                             color: "primary.main",
@@ -163,6 +168,7 @@ export const SideNav = ({ routes }: SideNavProps) => {
                                         },
                                         "& .MuiTypography-root": {
                                             opacity: 1,
+                                            fontWeight: 600,
                                         },
                                         "&::before": {
                                             content: '""',
@@ -187,15 +193,14 @@ export const SideNav = ({ routes }: SideNavProps) => {
                                         color: "text.secondary",
                                     },
                                     paddingY: "2px !important",
-                                    paddingLeft: collapsed ? "0px !important" : "12px !important",
+                                    paddingLeft: collapsed ? "0px !important" : "10px !important",
                                     paddingRight: collapsed ? "0px !important" : "4px !important",
                                     borderRadius: 2,
                                     borderTopLeftRadius: 0,
                                     borderBottomLeftRadius: 0,
                                     position: "relative",
                                     justifyContent: collapsed ? "center" : "flex-start",
-                                    minHeight: 40,
-                                    mb: 0.5,
+                                    minHeight: 38,
                                 }}
                             >
                                 <ListItemIcon
@@ -286,13 +291,6 @@ export const SideNav = ({ routes }: SideNavProps) => {
                                                         fontSize: "13px !important",
                                                         opacity: 0.7,
                                                     },
-                                                    mb: 0.5,
-                                                    paddingY: "2px !important",
-                                                    paddingX: "12px !important",
-                                                    paddingLeft: "44px !important",
-                                                    borderRadius: 2,
-                                                    position: "relative",
-                                                    minHeight: 34,
                                                     "&::before": {
                                                         content: '""',
                                                         position: "absolute",
@@ -303,6 +301,13 @@ export const SideNav = ({ routes }: SideNavProps) => {
                                                         backgroundColor: "divider",
                                                         opacity: 0.5,
                                                     },
+                                                    mb: 0.5,
+                                                    paddingY: "2px !important",
+                                                    paddingX: "12px !important",
+                                                    paddingLeft: "44px !important",
+                                                    borderRadius: 2,
+                                                    position: "relative",
+                                                    minHeight: 34,
                                                 }}
                                             >
                                                 {child.icon && (
@@ -368,7 +373,7 @@ export const SideNav = ({ routes }: SideNavProps) => {
                         backgroundColor: "#f3f4f6",
                         overflow: "hidden",
                         transition: "width 0.2s ease-in-out",
-                        borderRight: 0
+                        borderRight: 0,
                     },
                 }}
             >

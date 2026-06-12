@@ -8,7 +8,6 @@ export type UseGridDownloadArgs = {
     rows: GridRowsProp;
     columns: GridColDef[];
     filename?: string;
-    /** Re-fetches the full unpaginated dataset before exporting (Apollo network-only). */
     fetchAll?: () => Promise<any[]>;
 };
 
