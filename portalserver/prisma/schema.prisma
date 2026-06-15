@@ -29,12 +29,27 @@ model Organizations {
   name      String   @unique
   slug      String   @unique
   industry  String
-  modules   String[]
-  status    ORG_STATUS @default(ACTIVE)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  modules     String[]
+  status      STATUS       @default(ACTIVE)
+  departments Department[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
 
   @@map("organizations")
+}
+
+model Department {
+  id           String        @id @default(uuid())
+  organization Organizations @relation(fields: [orgId], references: [id])
+  orgId        String
+  name         String
+  description  String
+  status       STATUS        @default(ACTIVE)
+  createdAt    DateTime      @default(now())
+  updatedAt    DateTime      @updatedAt
+
+  @@unique([name, orgId])
+  @@map("departments")
 }
 
 enum ROLE {
@@ -51,7 +66,7 @@ enum MODULES {
   AGILE
 }
 
-enum ORG_STATUS {
+enum STATUS {
   ACTIVE
   SUSPENDED
 }

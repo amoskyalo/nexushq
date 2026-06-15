@@ -11,7 +11,7 @@ export const SearchInput = ({ width = "250px", ...props }: TextFieldProps & { wi
                 input: {
                     style: {
                         width,
-                        height: "28px",
+                        height: "26px",
                         fontSize: "14px",
                         fontWeight: 500,
                     },

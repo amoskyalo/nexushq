@@ -89,21 +89,21 @@ export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
-export type EnumORG_STATUSFilter<$PrismaModel = never> = {
-  equals?: $Enums.ORG_STATUS | Prisma.EnumORG_STATUSFieldRefInput<$PrismaModel>
-  in?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  notIn?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumORG_STATUSFilter<$PrismaModel> | $Enums.ORG_STATUS
+export type EnumSTATUSFilter<$PrismaModel = never> = {
+  equals?: $Enums.STATUS | Prisma.EnumSTATUSFieldRefInput<$PrismaModel>
+  in?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  notIn?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSTATUSFilter<$PrismaModel> | $Enums.STATUS
 }
 
-export type EnumORG_STATUSWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.ORG_STATUS | Prisma.EnumORG_STATUSFieldRefInput<$PrismaModel>
-  in?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  notIn?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumORG_STATUSWithAggregatesFilter<$PrismaModel> | $Enums.ORG_STATUS
+export type EnumSTATUSWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.STATUS | Prisma.EnumSTATUSFieldRefInput<$PrismaModel>
+  in?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  notIn?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSTATUSWithAggregatesFilter<$PrismaModel> | $Enums.STATUS
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumORG_STATUSFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumORG_STATUSFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSTATUSFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSTATUSFilter<$PrismaModel>
 }
 
 export type NestedStringFilter<$PrismaModel = never> = {
@@ -190,21 +190,21 @@ export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
   _max?: Prisma.NestedDateTimeFilter<$PrismaModel>
 }
 
-export type NestedEnumORG_STATUSFilter<$PrismaModel = never> = {
-  equals?: $Enums.ORG_STATUS | Prisma.EnumORG_STATUSFieldRefInput<$PrismaModel>
-  in?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  notIn?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumORG_STATUSFilter<$PrismaModel> | $Enums.ORG_STATUS
+export type NestedEnumSTATUSFilter<$PrismaModel = never> = {
+  equals?: $Enums.STATUS | Prisma.EnumSTATUSFieldRefInput<$PrismaModel>
+  in?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  notIn?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSTATUSFilter<$PrismaModel> | $Enums.STATUS
 }
 
-export type NestedEnumORG_STATUSWithAggregatesFilter<$PrismaModel = never> = {
-  equals?: $Enums.ORG_STATUS | Prisma.EnumORG_STATUSFieldRefInput<$PrismaModel>
-  in?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  notIn?: $Enums.ORG_STATUS[] | Prisma.ListEnumORG_STATUSFieldRefInput<$PrismaModel>
-  not?: Prisma.NestedEnumORG_STATUSWithAggregatesFilter<$PrismaModel> | $Enums.ORG_STATUS
+export type NestedEnumSTATUSWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.STATUS | Prisma.EnumSTATUSFieldRefInput<$PrismaModel>
+  in?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  notIn?: $Enums.STATUS[] | Prisma.ListEnumSTATUSFieldRefInput<$PrismaModel>
+  not?: Prisma.NestedEnumSTATUSWithAggregatesFilter<$PrismaModel> | $Enums.STATUS
   _count?: Prisma.NestedIntFilter<$PrismaModel>
-  _min?: Prisma.NestedEnumORG_STATUSFilter<$PrismaModel>
-  _max?: Prisma.NestedEnumORG_STATUSFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumSTATUSFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumSTATUSFilter<$PrismaModel>
 }
 
 
