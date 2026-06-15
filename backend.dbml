@@ -17,7 +17,7 @@ Table organizations {
   orgName   String [not null]
   slug      String [not null]
   modules   MODULES [default: 'HR']
-  status    ORG_STATUS [default: 'ACTIVE']
+  status    STATUS [default: 'ACTIVE']
 }
 
 Table departments {
@@ -25,6 +25,7 @@ Table departments {
   orgId String [not null]
   departmentName String [not null]
   description String [not null]
+  status STATUS [default: 'ACTIVE']
 }
 
 Table employees {
@@ -66,7 +67,7 @@ enum DOCUMENT_TYPE {
   DRIVING_LICENSE
 }
 
-enum ORG_STATUS {
+enum STATUS {
   ACTIVE
   SUSPENDED
 }

@@ -385,13 +385,9 @@ type FieldRefInputType<Model, FieldType> = Model extends never ? never : FieldRe
 
 export const ModelName = {
   User: 'User',
-<<<<<<< Updated upstream
-  Organizations: 'Organizations'
-=======
   Organizations: 'Organizations',
   Department: 'Department',
   Employee: 'Employee'
->>>>>>> Stashed changes
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -407,11 +403,7 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
     omit: GlobalOmitOptions
   }
   meta: {
-<<<<<<< Updated upstream
-    modelProps: "user" | "organizations"
-=======
     modelProps: "user" | "organizations" | "department" | "employee"
->>>>>>> Stashed changes
     txIsolationLevel: TransactionIsolationLevel
   }
   model: {
@@ -563,8 +555,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
-<<<<<<< Updated upstream
-=======
     Department: {
       payload: Prisma.$DepartmentPayload<ExtArgs>
       fields: Prisma.DepartmentFieldRefs
@@ -713,7 +703,6 @@ export type TypeMap<ExtArgs extends runtime.Types.Extensions.InternalArgs = runt
         }
       }
     }
->>>>>>> Stashed changes
   }
 } & {
   other: {
@@ -783,8 +772,6 @@ export const OrganizationsScalarFieldEnum = {
 export type OrganizationsScalarFieldEnum = (typeof OrganizationsScalarFieldEnum)[keyof typeof OrganizationsScalarFieldEnum]
 
 
-<<<<<<< Updated upstream
-=======
 export const DepartmentScalarFieldEnum = {
   id: 'id',
   orgId: 'orgId',
@@ -801,11 +788,11 @@ export type DepartmentScalarFieldEnum = (typeof DepartmentScalarFieldEnum)[keyof
 export const EmployeeScalarFieldEnum = {
   id: 'id',
   orgId: 'orgId',
+  departmentId: 'departmentId',
   employeeId: 'employeeId',
+  reportsTo: 'reportsTo',
   employmentStatus: 'employmentStatus',
   employmentEndDate: 'employmentEndDate',
-  reportsTo: 'reportsTo',
-  departmentId: 'departmentId',
   firstName: 'firstName',
   lastName: 'lastName',
   email: 'email',
@@ -820,7 +807,6 @@ export const EmployeeScalarFieldEnum = {
 export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
 
 
->>>>>>> Stashed changes
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -894,16 +880,16 @@ export type ListDateTimeFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaM
 
 
 /**
- * Reference to a field of type 'ORG_STATUS'
+ * Reference to a field of type 'STATUS'
  */
-export type EnumORG_STATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ORG_STATUS'>
+export type EnumSTATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS'>
     
 
 
 /**
- * Reference to a field of type 'ORG_STATUS[]'
+ * Reference to a field of type 'STATUS[]'
  */
-export type ListEnumORG_STATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'ORG_STATUS[]'>
+export type ListEnumSTATUSFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'STATUS[]'>
     
 
 
@@ -1060,11 +1046,8 @@ export type PrismaClientOptions = ({
 export type GlobalOmitConfig = {
   user?: Prisma.UserOmit
   organizations?: Prisma.OrganizationsOmit
-<<<<<<< Updated upstream
-=======
   department?: Prisma.DepartmentOmit
   employee?: Prisma.EmployeeOmit
->>>>>>> Stashed changes
 }
 
 /* Types for Logging */

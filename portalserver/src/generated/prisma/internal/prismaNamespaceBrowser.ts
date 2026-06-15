@@ -52,13 +52,9 @@ export const AnyNull = runtime.AnyNull
 
 export const ModelName = {
   User: 'User',
-<<<<<<< Updated upstream
-  Organizations: 'Organizations'
-=======
   Organizations: 'Organizations',
   Department: 'Department',
   Employee: 'Employee'
->>>>>>> Stashed changes
 } as const
 
 export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -107,8 +103,6 @@ export const OrganizationsScalarFieldEnum = {
 export type OrganizationsScalarFieldEnum = (typeof OrganizationsScalarFieldEnum)[keyof typeof OrganizationsScalarFieldEnum]
 
 
-<<<<<<< Updated upstream
-=======
 export const DepartmentScalarFieldEnum = {
   id: 'id',
   orgId: 'orgId',
@@ -125,11 +119,11 @@ export type DepartmentScalarFieldEnum = (typeof DepartmentScalarFieldEnum)[keyof
 export const EmployeeScalarFieldEnum = {
   id: 'id',
   orgId: 'orgId',
+  departmentId: 'departmentId',
   employeeId: 'employeeId',
+  reportsTo: 'reportsTo',
   employmentStatus: 'employmentStatus',
   employmentEndDate: 'employmentEndDate',
-  reportsTo: 'reportsTo',
-  departmentId: 'departmentId',
   firstName: 'firstName',
   lastName: 'lastName',
   email: 'email',
@@ -144,7 +138,6 @@ export const EmployeeScalarFieldEnum = {
 export type EmployeeScalarFieldEnum = (typeof EmployeeScalarFieldEnum)[keyof typeof EmployeeScalarFieldEnum]
 
 
->>>>>>> Stashed changes
 export const SortOrder = {
   asc: 'asc',
   desc: 'desc'

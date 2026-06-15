@@ -29,14 +29,11 @@ export const MODULES = {
 export type MODULES = (typeof MODULES)[keyof typeof MODULES]
 
 
-export const ORG_STATUS = {
+export const STATUS = {
   ACTIVE: 'ACTIVE',
   SUSPENDED: 'SUSPENDED'
 } as const
 
-<<<<<<< Updated upstream
-export type ORG_STATUS = (typeof ORG_STATUS)[keyof typeof ORG_STATUS]
-=======
 export type STATUS = (typeof STATUS)[keyof typeof STATUS]
 
 
@@ -57,4 +54,3 @@ export const EMPLOYMENT_STATUS = {
 } as const
 
 export type EMPLOYMENT_STATUS = (typeof EMPLOYMENT_STATUS)[keyof typeof EMPLOYMENT_STATUS]
->>>>>>> Stashed changes

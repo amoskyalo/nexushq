@@ -23,18 +23,6 @@ model User {
 }
 
 model Organizations {
-<<<<<<< Updated upstream
-  id        String   @id @default(uuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String //foreign key in postgress!!
-  name      String   @unique
-  slug      String   @unique
-  industry  String
-  modules   String[]
-  status    ORG_STATUS @default(ACTIVE)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-=======
   id          String       @id @default(uuid())
   user        User         @relation(fields: [userId], references: [id])
   userId      String
@@ -47,13 +35,10 @@ model Organizations {
   employees   Employee[]
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
->>>>>>> Stashed changes
 
   @@map("organizations")
 }
 
-<<<<<<< Updated upstream
-=======
 model Department {
   id           String        @id @default(uuid())
   organization Organizations @relation(fields: [orgId], references: [id])
@@ -74,11 +59,11 @@ model Employee {
   organization      Organizations     @relation(fields: [orgId], references: [id])
   orgId             String
   department        Department        @relation(fields: [departmentId], references: [id])
+  departmentId      String
   employeeId        String
+  reportsTo         String?
   employmentStatus  EMPLOYMENT_STATUS @default(FULL_TIME)
   employmentEndDate DateTime?
-  reportsTo         String?
-  departmentId      String
   firstName         String
   lastName          String
   email             String
@@ -95,7 +80,6 @@ model Employee {
   @@map("employees")
 }
 
->>>>>>> Stashed changes
 enum ROLE {
   ADMIN
   FINANCE
@@ -110,7 +94,7 @@ enum MODULES {
   AGILE
 }
 
-enum ORG_STATUS {
+enum STATUS {
   ACTIVE
   SUSPENDED
 }
