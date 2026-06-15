@@ -23,7 +23,7 @@ export const DatePickerInput = ({ label, error, helperText, ...props }: DatePick
                     {...props}
                     sx={{
                         ".MuiPickersInputBase-root": {
-                            borderRadius: "3.125rem !important",
+                            borderRadius: "0.5rem !important",
                             minHeight: "2.5rem !important",
                             boxShadow: "0 0 0 0 transparent !important",
                             transition: "box-shadow 0.2s ease-in-out, border-color 0.15s ease-in-out !important",

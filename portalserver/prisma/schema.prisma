@@ -23,15 +23,16 @@ model User {
 }
 
 model Organizations {
-  id        String   @id @default(uuid())
-  user      User     @relation(fields: [userId], references: [id])
-  userId    String //foreign key in postgress!!
-  name      String   @unique
-  slug      String   @unique
-  industry  String
+  id          String       @id @default(uuid())
+  user        User         @relation(fields: [userId], references: [id])
+  userId      String
+  name        String       @unique
+  slug        String       @unique
+  industry    String
   modules     String[]
   status      STATUS       @default(ACTIVE)
   departments Department[]
+  employees   Employee[]
   createdAt   DateTime     @default(now())
   updatedAt   DateTime     @updatedAt
 
@@ -45,11 +46,38 @@ model Department {
   name         String
   description  String
   status       STATUS        @default(ACTIVE)
+  employees    Employee[]
   createdAt    DateTime      @default(now())
   updatedAt    DateTime      @updatedAt
 
   @@unique([name, orgId])
   @@map("departments")
+}
+
+model Employee {
+  id                String            @id @default(uuid())
+  organization      Organizations     @relation(fields: [orgId], references: [id])
+  orgId             String
+  department        Department        @relation(fields: [departmentId], references: [id])
+  departmentId      String
+  employeeId        String
+  reportsTo         String?
+  employmentStatus  EMPLOYMENT_STATUS @default(FULL_TIME)
+  employmentEndDate DateTime?
+  firstName         String
+  lastName          String
+  email             String
+  phoneNumber       String
+  role              String
+  docs              DOCUMENT_TYPE     @default(ID_CARD)
+  status            STATUS            @default(ACTIVE)
+  createdAt         DateTime          @default(now())
+  updatedAt         DateTime          @updatedAt
+
+  @@unique([email, orgId])
+  @@unique([phoneNumber, orgId])
+  @@unique([employeeId, orgId])
+  @@map("employees")
 }
 
 enum ROLE {
@@ -69,4 +97,17 @@ enum MODULES {
 enum STATUS {
   ACTIVE
   SUSPENDED
+}
+
+enum DOCUMENT_TYPE {
+  ID_CARD
+  PASSPORT
+  DRIVING_LICENSE
+}
+
+enum EMPLOYMENT_STATUS {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
 }

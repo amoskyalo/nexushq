@@ -35,3 +35,22 @@ export const STATUS = {
 } as const
 
 export type STATUS = (typeof STATUS)[keyof typeof STATUS]
+
+
+export const DOCUMENT_TYPE = {
+  ID_CARD: 'ID_CARD',
+  PASSPORT: 'PASSPORT',
+  DRIVING_LICENSE: 'DRIVING_LICENSE'
+} as const
+
+export type DOCUMENT_TYPE = (typeof DOCUMENT_TYPE)[keyof typeof DOCUMENT_TYPE]
+
+
+export const EMPLOYMENT_STATUS = {
+  FULL_TIME: 'FULL_TIME',
+  PART_TIME: 'PART_TIME',
+  CONTRACT: 'CONTRACT',
+  INTERNSHIP: 'INTERNSHIP'
+} as const
+
+export type EMPLOYMENT_STATUS = (typeof EMPLOYMENT_STATUS)[keyof typeof EMPLOYMENT_STATUS]

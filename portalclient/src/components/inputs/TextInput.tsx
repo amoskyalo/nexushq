@@ -61,7 +61,6 @@ export const TextInput = ({
                     "& .MuiInputBase-root": {
                         minHeight: multiline ? "110px" : (sx as any)?.height,
                         height: (sx as any)?.height,
-                        ...(multiline ? { borderRadius: "16px" } : {}),
                     },
                     ...sx,
                 }}

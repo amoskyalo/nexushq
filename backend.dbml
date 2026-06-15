@@ -30,13 +30,19 @@ Table departments {
 
 Table employees {
   id String [primary key]
+  orgId String [not null]
   departmentId String [not null]
+  employeeId String [not null]
+  reportsTo String
   firstName String [not null]
   lastName String [not null]
   email String [not null]
   phoneNumber String [not null]
-  position String [not null]
+  role String [not null]
   docs DOCUMENT_TYPE [default: 'ID_CARD']
+  employmentStatus EMPLOYMENT_STATUS [default: 'FULL_TIME']
+  employmentEndDate DateTime
+  status    STATUS [default: 'ACTIVE']
   createdAt DateTime
   updatedAt DateTime
 }
@@ -66,6 +72,14 @@ enum STATUS {
   SUSPENDED
 }
 
+enum EMPLOYMENT_STATUS {
+  FULL_TIME
+  PART_TIME
+  CONTRACT
+  INTERNSHIP
+}
+
 Ref: "organizations"."userId" < "users"."id"
 Ref: "employees"."departmentId" < "departments"."id"
+Ref: "employees"."orgId" < "organizations"."id"
 Ref: "departments"."orgId" < "organizations"."id"

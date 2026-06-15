@@ -23,7 +23,7 @@ export const FormDialog = (props: FormDialogProps) => {
             sx={{
                 backdropFilter: blur ? "blur(4px)" : "none",
                 "& .MuiDialog-paper": {
-                    borderRadius: "16px",
+                    borderRadius: "8px",
                 },
                 ...sx,
             }}

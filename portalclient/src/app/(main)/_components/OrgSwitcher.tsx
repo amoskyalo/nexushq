@@ -52,7 +52,7 @@ const OrgSwitcher = () => {
                     color: "text.secondary",
                     border: 1,
                     borderColor: "divider",
-                    borderRadius: 16,
+                    borderRadius: 2,
                     px: 1,
                     py: 0.4,
                     transition: (theme) =>
@@ -95,7 +95,7 @@ const OrgSwitcher = () => {
                         sx: {
                             mt: 1,
                             maxWidth: 380,
-                            borderRadius: 4,
+                            borderRadius: 2,
                             px: 1,
                         },
                     },
@@ -151,7 +151,7 @@ const OrgSwitcher = () => {
                                     onClick={() => handleSelect(org)}
                                     selected={active}
                                     sx={{
-                                        borderRadius: 3,
+                                        borderRadius: 2,
                                         pl: 0.5,
                                         pr: 1,
                                         py: 0.5,

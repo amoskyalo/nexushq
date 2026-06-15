@@ -35,7 +35,7 @@ const AccountMenu = () => {
                 sx={{
                     border: 1,
                     borderColor: "divider",
-                    borderRadius: 16,
+                    borderRadius: 2,
                     width: 38,
                     height: 38,
                     ":hover": {

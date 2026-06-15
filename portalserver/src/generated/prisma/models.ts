@@ -11,4 +11,5 @@
 export type * from './models/User'
 export type * from './models/Organizations'
 export type * from './models/Department'
+export type * from './models/Employee'
 export type * from './commonInputTypes'

@@ -3,8 +3,18 @@ import { AsYouType } from "libphonenumber-js";
 import dayjs from "dayjs";
 
 export function getFormikFieldProps<Type>(args: GetFormikFieldPropsArgs<Type>): any {
-    const { formik, field, isAutoComplete, isGroupedCheckbox, isOTP, isDateTimePicker, isPhone, isSelect, isFile } =
-        args;
+    const {
+        formik,
+        field,
+        isAutoComplete,
+        isGroupedCheckbox,
+        isOTP,
+        isDateTimePicker,
+        isDatePicker,
+        isPhone,
+        isSelect,
+        isFile,
+    } = args;
     const { values, errors, touched, getFieldProps, setFieldValue } = formik;
 
     const formField = String(field);
@@ -31,6 +41,10 @@ export function getFormikFieldProps<Type>(args: GetFormikFieldPropsArgs<Type>): 
         } else {
             setFieldValue(formField, "");
         }
+    };
+
+    const handleDatePickerChange = (value: any) => {
+        setFieldValue(formField, value ? value.format("YYYY-MM-DD") : "");
     };
 
     const handlePhoneChange = (onChangeValues: any) => {
@@ -76,6 +90,15 @@ export function getFormikFieldProps<Type>(args: GetFormikFieldPropsArgs<Type>): 
         const rawValue = values[field] as string | number | Date | undefined;
         return {
             onChange: handleDateTimePickerChange,
+            value: rawValue ? dayjs(rawValue) : null,
+            ...commonProps,
+        };
+    }
+
+    if (isDatePicker) {
+        const rawValue = values[field] as string | number | Date | undefined;
+        return {
+            onChange: handleDatePickerChange,
             value: rawValue ? dayjs(rawValue) : null,
             ...commonProps,
         };

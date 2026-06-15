@@ -56,3 +56,8 @@ export type Organizations = Prisma.OrganizationsModel
  * 
  */
 export type Department = Prisma.DepartmentModel
+/**
+ * Model Employee
+ * 
+ */
+export type Employee = Prisma.EmployeeModel

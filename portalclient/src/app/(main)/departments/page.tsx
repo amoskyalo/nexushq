@@ -1,20 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import {
-    Avatar,
-    Box,
-    Button,
-    CircularProgress,
-    Grid,
-    InputAdornment,
-    Stack,
-    TextField,
-    Typography,
-} from "@mui/material";
-import { Plus, Search, ListFilter } from "lucide-react";
+import { Avatar, CircularProgress, Grid, Stack, Typography } from "@mui/material";
+import { Search } from "lucide-react";
 import { PageContainer } from "@/components/containers";
 import { ActionDialog } from "@/components/dialogs";
+import { DatagridFooter } from "@/components/datagrid";
+import { Searchbar } from "@/components/inputs";
+import { CreateButton, FilterButton } from "@/components/buttons";
+import { usePagination } from "@/hooks";
 import { useOrganization } from "@/context";
 import { useDepartments, useDeleteDepartment } from "./_lib/useDepartments";
 import { DepartmentCard } from "./_components/DepartmentCard";
@@ -54,73 +48,15 @@ const DepartmentsPage = () => {
           )
         : departments;
 
+    const { pageItems, pages } = usePagination(filteredDepartments);
+
     return (
         <PageContainer title="Departments" description="Organize your people into teams.">
             <Stack spacing={2}>
-                <Stack direction="row" spacing={1} alignItems="center">
-                    <Box sx={{ flex: 1 }}>
-                        <TextField
-                            size="small"
-                            fullWidth
-                            value={search}
-                            onChange={(event) => setSearch(event.target.value)}
-                            sx={{
-                                "& .MuiInputBase-root": {
-                                    maxHeight: "33px !important",
-                                    minHeight: "33px !important",
-                                    height: "33px !important",
-                                    paddingLeft: "10px !important",
-                                    fontSize: 14,
-                                },
-                            }}
-                            placeholder="Search..."
-                            slotProps={{
-                                input: {
-                                    startAdornment: (
-                                        <InputAdornment position="start">
-                                            <Search size={16} style={{ opacity: 0.7 }} />
-                                        </InputAdornment>
-                                    ),
-                                },
-                            }}
-                        />
-                    </Box>
-                    <Button
-                        sx={{
-                            color: "text.secondary",
-                            border: 1,
-                            borderColor: "divider",
-                            borderRadius: 8,
-                            gap: 1,
-                            textTransform: "none",
-                            minHeight: "33px !important",
-                            maxHeight: "33px !important",
-                            px: 1.3,
-                        }}
-                    >
-                        <ListFilter size={14} />
-                        <Typography variant="caption" color="text.secondary" sx={{ fontWeight: 500 }}>
-                            Filter
-                        </Typography>
-                    </Button>
-                    <Button
-                        onClick={openCreate}
-                        variant="contained"
-                        sx={{
-                            borderRadius: 8,
-                            gap: 0.5,
-                            textTransform: "none",
-                            minHeight: "33px !important",
-                            maxHeight: "33px !important",
-                            pr: 1.3,
-                            pl: 1,
-                        }}
-                    >
-                        <Plus size={14} color="white" />
-                        <Typography variant="caption" sx={{ fontWeight: 500, color: "white" }}>
-                            Create
-                        </Typography>
-                    </Button>
+                <Stack direction="row" spacing={1} alignItems="center" justifyContent="flex-end">
+                    <Searchbar value={search} onChange={setSearch} />
+                    <FilterButton />
+                    <CreateButton onClick={openCreate} />
                 </Stack>
 
                 {loading && (
@@ -152,17 +88,20 @@ const DepartmentsPage = () => {
                 )}
 
                 {!loading && filteredDepartments.length > 0 && (
-                    <Grid container spacing={2}>
-                        {filteredDepartments.map((department) => (
-                            <Grid size={{ xs: 12, sm: 6, md: 3 }} key={department.id}>
-                                <DepartmentCard
-                                    department={department}
-                                    onEdit={openEdit}
-                                    onDelete={setDeleteTarget}
-                                />
-                            </Grid>
-                        ))}
-                    </Grid>
+                    <>
+                        <Grid container spacing={2}>
+                            {pageItems.map((department) => (
+                                <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3, xl: 2 }} key={department.id}>
+                                    <DepartmentCard
+                                        department={department}
+                                        onEdit={openEdit}
+                                        onDelete={setDeleteTarget}
+                                    />
+                                </Grid>
+                            ))}
+                        </Grid>
+                        <DatagridFooter pages={pages} />
+                    </>
                 )}
             </Stack>
 

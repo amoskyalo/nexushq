@@ -7,6 +7,7 @@ export * from './PhoneInput';
 export * from './SelectInput';
 export * from './TextInput';
 export * from './SearchInput';
+export * from './Searchbar';
 export * from './SwitchInput';
 export * from './InputLabel';
 export * from './FileUploadInput'
