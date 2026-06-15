@@ -70,10 +70,10 @@ const MainLayout = ({ children }: { children: React.ReactNode }) => {
                                         />
 
                                         <Stack direction="row" alignItems="center" spacing={1.5}>
-                                            <IconButton sx={{ border: 1, borderColor: "divider" }}>
+                                            <IconButton sx={{ border: 1, borderColor: "divider", borderRadius: 2 }}>
                                                 <Bell size={20} />
                                             </IconButton>
-                                            <IconButton sx={{ border: 1, borderColor: "divider" }}>
+                                            <IconButton sx={{ border: 1, borderColor: "divider", borderRadius: 2 }}>
                                                 <CalendarFold size={20} />
                                             </IconButton>
 

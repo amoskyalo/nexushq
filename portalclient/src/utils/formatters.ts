@@ -96,6 +96,26 @@ export const formatters = () => {
         }
     };
 
+    const employmentDurationInMonths = (startDate: string, endDate?: string | null) => {
+        if (!endDate) {
+            return null;
+        }
+
+        const totalMonths = dayjs(endDate).diff(dayjs(startDate), "month");
+        if (totalMonths < 0) {
+            return null;
+        }
+
+        const years = Math.floor(totalMonths / 12);
+        const months = totalMonths % 12;
+
+        const parts: string[] = [];
+        if (years > 0) parts.push(`${years}yr`);
+        if (months > 0) parts.push(`${months} month${months === 1 ? "" : "s"}`);
+
+        return `(${parts.length > 0 ? parts.join(" ") : "0 months"})`;
+    };
+
     return {
         lowerCaseString,
         formatDate,
@@ -106,5 +126,6 @@ export const formatters = () => {
         getDisplayDates,
         capitalizeText,
         getColumnTypes,
+        employmentDurationInMonths,
     };
 };

@@ -10,6 +10,7 @@ import { useGridSelection } from "./useGridSelection";
 export type UseDataGridArgs<TData, TParams> = {
     url: string;
     grid?: GridProps<TData, TParams>;
+    fallbackRows?: TData[];
     onAdd?: () => void;
     onEdit?: (row: any) => void;
     onDelete?: (id: GridRowId, row: any) => void;
@@ -32,7 +33,7 @@ export type UseDataGridResult<TData, TParams> = {
 export const useDataGrid = <TData, TParams>(
     args: UseDataGridArgs<TData, TParams>,
 ): UseDataGridResult<TData, TParams> => {
-    const { url, grid, onAdd, onEdit, onDelete, onAction } = args;
+    const { url, grid, fallbackRows, onAdd, onEdit, onDelete, onAction } = args;
 
     const { params } = useGridUrlState({
         searchKey: { url: grid?.searchConfig?.url_key, api: grid?.searchConfig?.api_key },
@@ -45,6 +46,7 @@ export const useDataGrid = <TData, TParams>(
     const { rows, pages, loading, refetch, fetchAllForExport } = useGridData<TData>({
         url,
         params: params as Record<string, unknown>,
+        fallbackRows,
     });
 
     const { selectedRows, setSelectedRows, clearSelection } = useGridSelection();

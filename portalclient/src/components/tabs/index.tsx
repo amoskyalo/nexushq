@@ -15,7 +15,7 @@ export const Tabs = ({
         <MuiTabs
             sx={{
                 borderBottom: 1,
-                borderColor: "divider",
+                borderColor: "rgba(0, 0, 0, 0.08)",
                 [`& .${tabsClasses.scrollButtons}`]: {
                     "&.Mui-disabled": { opacity: 0.3 },
                 },

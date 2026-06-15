@@ -3,10 +3,11 @@
 import { useQueryGet } from "./useQueryGet";
 import { axiosInstance } from "@/lib/axios";
 
-export type UseGridDataArgs = {
+export type UseGridDataArgs<TRow = any> = {
     url: string;
     params: Record<string, unknown>;
     enabled?: boolean;
+    fallbackRows?: TRow[];
 };
 
 export type UseGridDataResult<TRow = any> = {
@@ -18,10 +19,10 @@ export type UseGridDataResult<TRow = any> = {
     fetchAllForExport: () => Promise<TRow[]>;
 };
 
-export const useGridData = <TRow = any>(args: UseGridDataArgs): UseGridDataResult<TRow> => {
-    const { url, params, enabled = true } = args;
+export const useGridData = <TRow = any>(args: UseGridDataArgs<TRow>): UseGridDataResult<TRow> => {
+    const { url, params, enabled = true, fallbackRows } = args;
 
-    const { data: response, isLoading, isRefetching, refetch } = useQueryGet<TRow[], Record<string, unknown>>({
+    const { data: response, isLoading, isRefetching, isError, refetch } = useQueryGet<TRow[], Record<string, unknown>>({
         url,
         params,
         options: { enabled },
@@ -35,8 +36,11 @@ export const useGridData = <TRow = any>(args: UseGridDataArgs): UseGridDataResul
         return Array.isArray(rows) ? (rows as TRow[]) : [];
     };
 
+    const apiRows = response?.body;
+    const rows = Array.isArray(apiRows) ? apiRows : isError && fallbackRows ? fallbackRows : [];
+
     return {
-        rows: (response?.body ?? []) as TRow[],
+        rows: rows as TRow[],
         pages: response?.pages,
         currentPage: response?.current_page,
         loading: isLoading || isRefetching,

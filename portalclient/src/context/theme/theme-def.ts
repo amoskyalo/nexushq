@@ -46,9 +46,9 @@ const baseTypography = {
 
 const baseButtonStyles = {
     root: {
-        borderRadius: borderRadius.pill,
+        borderRadius: borderRadius.sm,
         textTransform: "none" as const,
-        minHeight: height.md,
+        //minHeight: height.md,
     },
 };
 
@@ -104,7 +104,7 @@ const baseComponents = {
         styleOverrides: {
             root: {
                 "& .MuiOutlinedInput-root": {
-                    borderRadius: borderRadius.pill,
+                    borderRadius: borderRadius.sm,
                 },
             },
         },
@@ -115,7 +115,7 @@ const baseComponents = {
         },
         styleOverrides: {
             root: {
-                borderRadius: borderRadius.pill,
+                borderRadius: borderRadius.sm,
             },
         },
     },
@@ -147,6 +147,15 @@ export const createLightTheme = (colors?: ThemeColors): Theme =>
                 secondary: "#64748B",
             },
             divider: "rgba(0, 0, 0, 0.12)",
+        },
+        breakpoints: {
+            values: {
+                xs: 0,
+                sm: 600,
+                md: 900,
+                lg: 1200,
+                xl: 1920,
+            },
         },
         typography: baseTypography,
         components: {

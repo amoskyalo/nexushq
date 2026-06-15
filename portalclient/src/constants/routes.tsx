@@ -6,7 +6,6 @@ import {
     Building2,
     Calendar,
     Briefcase,
-    FileText,
     BarChart,
     DollarSign,
     CreditCard,
@@ -78,12 +77,6 @@ export const ROUTES: SideNavRoute[] = [
         kind: "item",
         segment: "/recruitment",
         icon: <Briefcase size={16} />,
-    },
-    {
-        title: "Documents",
-        kind: "item",
-        segment: "/documents",
-        icon: <FileText size={16} />,
     },
     {
         title: "HR Reports",

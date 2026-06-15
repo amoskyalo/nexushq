@@ -1,6 +1,6 @@
 "use client";
 
-import { Pagination, Box, Divider, Stack, Typography, MenuList, MenuItem, Menu } from "@mui/material";
+import { Pagination, Box, Stack, Typography, MenuList, MenuItem, Menu } from "@mui/material";
 import { useResponsiveness } from "@/hooks/useResponsiveness";
 import { useSearchParams } from "@/hooks/useSearchParams";
 import { useGridUrlState } from "@/hooks/useGridUrlState";
@@ -45,7 +45,6 @@ export const DatagridFooter = (props: DataGridFooterProps) => {
 
     return (
         <Box>
-            {!hideRowSizeSelector && <Divider sx={{ borderColor: "var(--DataGrid-rowBorderColor)" }} />}
             <Stack
                 direction="row"
                 alignItems="center"
@@ -81,6 +80,7 @@ export const DatagridFooter = (props: DataGridFooterProps) => {
                     size={size}
                     showFirstButton={showFirstButton}
                     showLastButton={showLastButton}
+                    shape={shape}
                 />
             </Stack>
 

@@ -42,7 +42,7 @@ export const ActionDialog = (props: ActionDialogProps) => {
             sx={{
                 backdropFilter: blur ? "blur(4px)" : "none",
                 "& .MuiDialog-paper": {
-                    borderRadius: "16px",
+                    borderRadius: "8px",
                 },
             }}
         >

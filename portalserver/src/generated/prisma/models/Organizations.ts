@@ -211,6 +211,11 @@ export type OrganizationsWhereInput = {
   createdAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentListRelationFilter
+  employees?: Prisma.EmployeeListRelationFilter
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsOrderByWithRelationInput = {
@@ -224,6 +229,11 @@ export type OrganizationsOrderByWithRelationInput = {
   createdAt?: Prisma.SortOrder
   updatedAt?: Prisma.SortOrder
   user?: Prisma.UserOrderByWithRelationInput
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentOrderByRelationAggregateInput
+  employees?: Prisma.EmployeeOrderByRelationAggregateInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsWhereUniqueInput = Prisma.AtLeast<{
@@ -240,6 +250,11 @@ export type OrganizationsWhereUniqueInput = Prisma.AtLeast<{
   createdAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   updatedAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
   user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentListRelationFilter
+  employees?: Prisma.EmployeeListRelationFilter
+>>>>>>> Stashed changes
 }, "id" | "name" | "slug">
 
 export type OrganizationsOrderByWithAggregationInput = {
@@ -282,6 +297,11 @@ export type OrganizationsCreateInput = {
   createdAt?: Date | string
   updatedAt?: Date | string
   user: Prisma.UserCreateNestedOneWithoutOrganizationsInput
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  employees?: Prisma.EmployeeCreateNestedManyWithoutOrganizationInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsUncheckedCreateInput = {
@@ -294,6 +314,11 @@ export type OrganizationsUncheckedCreateInput = {
   status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  employees?: Prisma.EmployeeUncheckedCreateNestedManyWithoutOrganizationInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsUpdateInput = {
@@ -306,6 +331,11 @@ export type OrganizationsUpdateInput = {
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   user?: Prisma.UserUpdateOneRequiredWithoutOrganizationsNestedInput
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  employees?: Prisma.EmployeeUpdateManyWithoutOrganizationNestedInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsUncheckedUpdateInput = {
@@ -318,6 +348,11 @@ export type OrganizationsUncheckedUpdateInput = {
   status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  employees?: Prisma.EmployeeUncheckedUpdateManyWithoutOrganizationNestedInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsCreateManyInput = {
@@ -462,6 +497,20 @@ export type EnumORG_STATUSFieldUpdateOperationsInput = {
   set?: $Enums.ORG_STATUS
 }
 
+export type OrganizationsCreateNestedOneWithoutEmployeesInput = {
+  create?: Prisma.XOR<Prisma.OrganizationsCreateWithoutEmployeesInput, Prisma.OrganizationsUncheckedCreateWithoutEmployeesInput>
+  connectOrCreate?: Prisma.OrganizationsCreateOrConnectWithoutEmployeesInput
+  connect?: Prisma.OrganizationsWhereUniqueInput
+}
+
+export type OrganizationsUpdateOneRequiredWithoutEmployeesNestedInput = {
+  create?: Prisma.XOR<Prisma.OrganizationsCreateWithoutEmployeesInput, Prisma.OrganizationsUncheckedCreateWithoutEmployeesInput>
+  connectOrCreate?: Prisma.OrganizationsCreateOrConnectWithoutEmployeesInput
+  upsert?: Prisma.OrganizationsUpsertWithoutEmployeesInput
+  connect?: Prisma.OrganizationsWhereUniqueInput
+  update?: Prisma.XOR<Prisma.XOR<Prisma.OrganizationsUpdateToOneWithWhereWithoutEmployeesInput, Prisma.OrganizationsUpdateWithoutEmployeesInput>, Prisma.OrganizationsUncheckedUpdateWithoutEmployeesInput>
+}
+
 export type OrganizationsCreateWithoutUserInput = {
   id?: string
   name: string
@@ -471,6 +520,11 @@ export type OrganizationsCreateWithoutUserInput = {
   status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+  employees?: Prisma.EmployeeCreateNestedManyWithoutOrganizationInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsUncheckedCreateWithoutUserInput = {
@@ -482,6 +536,11 @@ export type OrganizationsUncheckedCreateWithoutUserInput = {
   status?: $Enums.ORG_STATUS
   createdAt?: Date | string
   updatedAt?: Date | string
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+  employees?: Prisma.EmployeeUncheckedCreateNestedManyWithoutOrganizationInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsCreateOrConnectWithoutUserInput = {
@@ -525,6 +584,145 @@ export type OrganizationsScalarWhereInput = {
   updatedAt?: Prisma.DateTimeFilter<"Organizations"> | Date | string
 }
 
+<<<<<<< Updated upstream
+=======
+export type OrganizationsCreateWithoutDepartmentsInput = {
+  id?: string
+  name: string
+  slug: string
+  industry: string
+  modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.STATUS
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutOrganizationsInput
+  employees?: Prisma.EmployeeCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationsUncheckedCreateWithoutDepartmentsInput = {
+  id?: string
+  userId: string
+  name: string
+  slug: string
+  industry: string
+  modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.STATUS
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  employees?: Prisma.EmployeeUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationsCreateOrConnectWithoutDepartmentsInput = {
+  where: Prisma.OrganizationsWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationsCreateWithoutDepartmentsInput, Prisma.OrganizationsUncheckedCreateWithoutDepartmentsInput>
+}
+
+export type OrganizationsUpsertWithoutDepartmentsInput = {
+  update: Prisma.XOR<Prisma.OrganizationsUpdateWithoutDepartmentsInput, Prisma.OrganizationsUncheckedUpdateWithoutDepartmentsInput>
+  create: Prisma.XOR<Prisma.OrganizationsCreateWithoutDepartmentsInput, Prisma.OrganizationsUncheckedCreateWithoutDepartmentsInput>
+  where?: Prisma.OrganizationsWhereInput
+}
+
+export type OrganizationsUpdateToOneWithWhereWithoutDepartmentsInput = {
+  where?: Prisma.OrganizationsWhereInput
+  data: Prisma.XOR<Prisma.OrganizationsUpdateWithoutDepartmentsInput, Prisma.OrganizationsUncheckedUpdateWithoutDepartmentsInput>
+}
+
+export type OrganizationsUpdateWithoutDepartmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  industry?: Prisma.StringFieldUpdateOperationsInput | string
+  modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutOrganizationsNestedInput
+  employees?: Prisma.EmployeeUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationsUncheckedUpdateWithoutDepartmentsInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  industry?: Prisma.StringFieldUpdateOperationsInput | string
+  modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  employees?: Prisma.EmployeeUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationsCreateWithoutEmployeesInput = {
+  id?: string
+  name: string
+  slug: string
+  industry: string
+  modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.STATUS
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  user: Prisma.UserCreateNestedOneWithoutOrganizationsInput
+  departments?: Prisma.DepartmentCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationsUncheckedCreateWithoutEmployeesInput = {
+  id?: string
+  userId: string
+  name: string
+  slug: string
+  industry: string
+  modules?: Prisma.OrganizationsCreatemodulesInput | string[]
+  status?: $Enums.STATUS
+  createdAt?: Date | string
+  updatedAt?: Date | string
+  departments?: Prisma.DepartmentUncheckedCreateNestedManyWithoutOrganizationInput
+}
+
+export type OrganizationsCreateOrConnectWithoutEmployeesInput = {
+  where: Prisma.OrganizationsWhereUniqueInput
+  create: Prisma.XOR<Prisma.OrganizationsCreateWithoutEmployeesInput, Prisma.OrganizationsUncheckedCreateWithoutEmployeesInput>
+}
+
+export type OrganizationsUpsertWithoutEmployeesInput = {
+  update: Prisma.XOR<Prisma.OrganizationsUpdateWithoutEmployeesInput, Prisma.OrganizationsUncheckedUpdateWithoutEmployeesInput>
+  create: Prisma.XOR<Prisma.OrganizationsCreateWithoutEmployeesInput, Prisma.OrganizationsUncheckedCreateWithoutEmployeesInput>
+  where?: Prisma.OrganizationsWhereInput
+}
+
+export type OrganizationsUpdateToOneWithWhereWithoutEmployeesInput = {
+  where?: Prisma.OrganizationsWhereInput
+  data: Prisma.XOR<Prisma.OrganizationsUpdateWithoutEmployeesInput, Prisma.OrganizationsUncheckedUpdateWithoutEmployeesInput>
+}
+
+export type OrganizationsUpdateWithoutEmployeesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  industry?: Prisma.StringFieldUpdateOperationsInput | string
+  modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  user?: Prisma.UserUpdateOneRequiredWithoutOrganizationsNestedInput
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+}
+
+export type OrganizationsUncheckedUpdateWithoutEmployeesInput = {
+  id?: Prisma.StringFieldUpdateOperationsInput | string
+  userId?: Prisma.StringFieldUpdateOperationsInput | string
+  name?: Prisma.StringFieldUpdateOperationsInput | string
+  slug?: Prisma.StringFieldUpdateOperationsInput | string
+  industry?: Prisma.StringFieldUpdateOperationsInput | string
+  modules?: Prisma.OrganizationsUpdatemodulesInput | string[]
+  status?: Prisma.EnumSTATUSFieldUpdateOperationsInput | $Enums.STATUS
+  createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+}
+
+>>>>>>> Stashed changes
 export type OrganizationsCreateManyUserInput = {
   id?: string
   name: string
@@ -545,6 +743,11 @@ export type OrganizationsUpdateWithoutUserInput = {
   status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentUpdateManyWithoutOrganizationNestedInput
+  employees?: Prisma.EmployeeUpdateManyWithoutOrganizationNestedInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsUncheckedUpdateWithoutUserInput = {
@@ -556,6 +759,11 @@ export type OrganizationsUncheckedUpdateWithoutUserInput = {
   status?: Prisma.EnumORG_STATUSFieldUpdateOperationsInput | $Enums.ORG_STATUS
   createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
   updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string
+<<<<<<< Updated upstream
+=======
+  departments?: Prisma.DepartmentUncheckedUpdateManyWithoutOrganizationNestedInput
+  employees?: Prisma.EmployeeUncheckedUpdateManyWithoutOrganizationNestedInput
+>>>>>>> Stashed changes
 }
 
 export type OrganizationsUncheckedUpdateManyWithoutUserInput = {
@@ -570,6 +778,47 @@ export type OrganizationsUncheckedUpdateManyWithoutUserInput = {
 }
 
 
+<<<<<<< Updated upstream
+=======
+/**
+ * Count Type OrganizationsCountOutputType
+ */
+
+export type OrganizationsCountOutputType = {
+  departments: number
+  employees: number
+}
+
+export type OrganizationsCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  departments?: boolean | OrganizationsCountOutputTypeCountDepartmentsArgs
+  employees?: boolean | OrganizationsCountOutputTypeCountEmployeesArgs
+}
+
+/**
+ * OrganizationsCountOutputType without action
+ */
+export type OrganizationsCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the OrganizationsCountOutputType
+   */
+  select?: Prisma.OrganizationsCountOutputTypeSelect<ExtArgs> | null
+}
+
+/**
+ * OrganizationsCountOutputType without action
+ */
+export type OrganizationsCountOutputTypeCountDepartmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.DepartmentWhereInput
+}
+
+/**
+ * OrganizationsCountOutputType without action
+ */
+export type OrganizationsCountOutputTypeCountEmployeesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  where?: Prisma.EmployeeWhereInput
+}
+
+>>>>>>> Stashed changes
 
 export type OrganizationsSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
   id?: boolean
@@ -582,6 +831,12 @@ export type OrganizationsSelect<ExtArgs extends runtime.Types.Extensions.Interna
   createdAt?: boolean
   updatedAt?: boolean
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+<<<<<<< Updated upstream
+=======
+  departments?: boolean | Prisma.Organizations$departmentsArgs<ExtArgs>
+  employees?: boolean | Prisma.Organizations$employeesArgs<ExtArgs>
+  _count?: boolean | Prisma.OrganizationsCountOutputTypeDefaultArgs<ExtArgs>
+>>>>>>> Stashed changes
 }, ExtArgs["result"]["organizations"]>
 
 export type OrganizationsSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
@@ -625,6 +880,12 @@ export type OrganizationsSelectScalar = {
 export type OrganizationsOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "name" | "slug" | "industry" | "modules" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["organizations"]>
 export type OrganizationsInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
+<<<<<<< Updated upstream
+=======
+  departments?: boolean | Prisma.Organizations$departmentsArgs<ExtArgs>
+  employees?: boolean | Prisma.Organizations$employeesArgs<ExtArgs>
+  _count?: boolean | Prisma.OrganizationsCountOutputTypeDefaultArgs<ExtArgs>
+>>>>>>> Stashed changes
 }
 export type OrganizationsIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.UserDefaultArgs<ExtArgs>
@@ -637,6 +898,11 @@ export type $OrganizationsPayload<ExtArgs extends runtime.Types.Extensions.Inter
   name: "Organizations"
   objects: {
     user: Prisma.$UserPayload<ExtArgs>
+<<<<<<< Updated upstream
+=======
+    departments: Prisma.$DepartmentPayload<ExtArgs>[]
+    employees: Prisma.$EmployeePayload<ExtArgs>[]
+>>>>>>> Stashed changes
   }
   scalars: runtime.Types.Extensions.GetPayloadResult<{
     id: string
@@ -1043,6 +1309,11 @@ readonly fields: OrganizationsFieldRefs;
 export interface Prisma__OrganizationsClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
   readonly [Symbol.toStringTag]: "PrismaPromise"
   user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+<<<<<<< Updated upstream
+=======
+  departments<T extends Prisma.Organizations$departmentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organizations$departmentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DepartmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+  employees<T extends Prisma.Organizations$employeesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.Organizations$employeesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$EmployeePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+>>>>>>> Stashed changes
   /**
    * Attaches callbacks for the resolution and/or rejection of the Promise.
    * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -1482,6 +1753,57 @@ export type OrganizationsDeleteManyArgs<ExtArgs extends runtime.Types.Extensions
 }
 
 /**
+<<<<<<< Updated upstream
+=======
+ * Organizations.departments
+ */
+export type Organizations$departmentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Department
+   */
+  select?: Prisma.DepartmentSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Department
+   */
+  omit?: Prisma.DepartmentOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.DepartmentInclude<ExtArgs> | null
+  where?: Prisma.DepartmentWhereInput
+  orderBy?: Prisma.DepartmentOrderByWithRelationInput | Prisma.DepartmentOrderByWithRelationInput[]
+  cursor?: Prisma.DepartmentWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.DepartmentScalarFieldEnum | Prisma.DepartmentScalarFieldEnum[]
+}
+
+/**
+ * Organizations.employees
+ */
+export type Organizations$employeesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+  /**
+   * Select specific fields to fetch from the Employee
+   */
+  select?: Prisma.EmployeeSelect<ExtArgs> | null
+  /**
+   * Omit specific fields from the Employee
+   */
+  omit?: Prisma.EmployeeOmit<ExtArgs> | null
+  /**
+   * Choose, which related nodes to fetch as well
+   */
+  include?: Prisma.EmployeeInclude<ExtArgs> | null
+  where?: Prisma.EmployeeWhereInput
+  orderBy?: Prisma.EmployeeOrderByWithRelationInput | Prisma.EmployeeOrderByWithRelationInput[]
+  cursor?: Prisma.EmployeeWhereUniqueInput
+  take?: number
+  skip?: number
+  distinct?: Prisma.EmployeeScalarFieldEnum | Prisma.EmployeeScalarFieldEnum[]
+}
+
+/**
+>>>>>>> Stashed changes
  * Organizations without action
  */
 export type OrganizationsDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {

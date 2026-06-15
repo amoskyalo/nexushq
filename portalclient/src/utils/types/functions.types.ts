@@ -13,6 +13,7 @@ export type GetFormikFieldPropsArgs<Type> = {
     isGroupedCheckbox?: boolean;
     isOTP?: boolean;
     isDateTimePicker?: boolean;
+    isDatePicker?: boolean;
     isPhone?: boolean;
     isSelect?: boolean;
     isFile?: boolean;

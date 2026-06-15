@@ -10,4 +10,9 @@
  */
 export type * from './models/User'
 export type * from './models/Organizations'
+<<<<<<< Updated upstream
+=======
+export type * from './models/Department'
+export type * from './models/Employee'
+>>>>>>> Stashed changes
 export type * from './commonInputTypes'

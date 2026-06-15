@@ -51,3 +51,16 @@ export type User = Prisma.UserModel
  * 
  */
 export type Organizations = Prisma.OrganizationsModel
+<<<<<<< Updated upstream
+=======
+/**
+ * Model Department
+ * 
+ */
+export type Department = Prisma.DepartmentModel
+/**
+ * Model Employee
+ * 
+ */
+export type Employee = Prisma.EmployeeModel
+>>>>>>> Stashed changes
